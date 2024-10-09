@@ -74,7 +74,7 @@ public static class ApplicationExtension
 
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "LoginIdentityServer");
             c.RoutePrefix = string.Empty; // Set the UI at the app's root
         });
         app.UseHttpsRedirection();

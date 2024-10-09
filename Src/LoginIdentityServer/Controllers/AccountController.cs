@@ -140,6 +140,7 @@ public class AccountController(UserManager<User> userManager, IConfiguration con
 
     //api/account/detail
     [HttpGet("detail")]
+    [Authorize]
     public async Task<ActionResult<UserDetailDto>> GetUserDetail()
     {
         var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -171,6 +172,7 @@ public class AccountController(UserManager<User> userManager, IConfiguration con
 
 
     [HttpGet]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<UserDetailDto>>> GetUsers()
     {
         var users = await userManager.Users.Select(u => new UserDetailDto

@@ -15,6 +15,7 @@ namespace LoginIdentityServer.Controllers;
 public class RolesController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager) : ControllerBase
 {
     [HttpPost]
+    [AllowAnonymous]
     public async Task<IActionResult> CreateRole([FromBody] CreateRoleDto createRoleDto)
     {
         if (string.IsNullOrEmpty(createRoleDto.RoleName))
